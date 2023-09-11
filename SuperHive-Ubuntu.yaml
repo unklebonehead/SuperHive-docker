@@ -1,0 +1,38 @@
+name: quirky_dennis
+services:
+  main_app:
+    cpu_shares: 10
+    command: []
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    image: ubuntu/nginx
+    labels:
+      icon: https://icon.casaos.io/main/all/nginx.png
+    ports:
+      - target: 80
+        published: "9001"
+        protocol: tcp
+      - target: 443
+        published: "9443"
+        protocol: tcp
+    restart: unless-stopped
+    volumes: []
+    devices: []
+    cap_add: []
+    environment: []
+    network_mode: bridge
+    privileged: false
+    container_name: ""
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://icon.casaos.io/main/all/nginx.png
+  index: /
+  port_map: "9001"
+  scheme: http
+  store_app_id: quirky_dennis
+  title:
+    custom: SuperHive
