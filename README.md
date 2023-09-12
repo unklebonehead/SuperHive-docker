@@ -1,5 +1,7 @@
 # SuperHive-docker
  SuperHive by bambukah in a docker container
+As of 9/11/23 I've got the container to build without error. But docker -d -p 80:80 the container will not run. I'm guessing it's in my superhive-setup.sh It will build and run without that. 
+---
 
 So far all I've gotten is a successful build with this version.
 
