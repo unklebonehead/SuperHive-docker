@@ -1,12 +1,6 @@
-FROM nginx:1.25.2-bookworm
+FROM ubuntu/nginx
 
 RUN apt update
 RUN apt upgrade -y
-
-CMD ["echo", "**** install dependencies"]
-
-RUN apt install wget -y
-RUN apt install php8.2-fpm -y
-
-CMD ["wget", "https://github.com/fkosmala/superhive/archive/refs/tags/*.tar.gz"]
-CMD ["tar", "-xvzf *.tar.gz"]
+RUN apt install nano curl nginx php-fpm jq -y
+RUN curl -s https://api.github.com/repos/fkosmala/superhive/releases/latest | jq -r ".tarball_url" | xargs -n1 curl --output superhive.tar.gz
